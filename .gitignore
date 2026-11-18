@@ -1,0 +1,8 @@
+bin/
+obj/
+node_modules/
+publish/
+*.user
+.vs/
+.vscode/
+cv/

@@ -1,0 +1,49 @@
+<header class="sticky top-0 z-40 border-b border-line bg-paper/85 backdrop-blur">
+    <div class="container-page flex h-16 items-center justify-between gap-4">
+        <a href="@(Content.Lang == Lang.En ? "/en#top" : "/#top")" class="flex items-center gap-2.5 font-bold tracking-tight">
+            <span class="grid size-8 place-items-center rounded-lg bg-accent text-sm font-extrabold text-paper">LC</span>
+            <span class="hidden whitespace-nowrap sm:inline">@Profile.Name</span>
+        </a>
+
+        <nav aria-label="Principal" class="hidden items-center gap-6 whitespace-nowrap text-sm font-medium text-muted lg:flex">
+            @foreach (var (href, label) in Links)
+            {
+                <a href="@href" class="transition hover:text-accent">@label</a>
+            }
+        </nav>
+
+        <div class="flex items-center gap-2">
+            <a href="@Content.Nav.SwitchLangHref" hreflang="@(Content.Lang == Lang.En ? "es" : "en")"
+               class="rounded-md border border-line px-2.5 py-1 text-xs font-semibold text-muted transition hover:border-accent hover:text-accent"
+               aria-label="@(Content.Lang == Lang.En ? "Ver en español" : "View in English")">@Content.Nav.SwitchLang</a>
+            <a href="@Content.CvFile" download class="btn-primary hidden whitespace-nowrap !py-2 sm:inline-flex">@Content.Nav.Cv</a>
+
+            <details class="relative lg:hidden">
+                <summary class="grid size-9 cursor-pointer list-none place-items-center rounded-md border border-line text-muted [&::-webkit-details-marker]:hidden"
+                         aria-label="Menú">
+                    <svg viewBox="0 0 24 24" class="size-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+                </summary>
+                <nav class="card absolute right-0 mt-2 flex w-52 flex-col p-2 text-sm shadow-lg">
+                    @foreach (var (href, label) in Links)
+                    {
+                        <a href="@href" class="rounded-md px-3 py-2 hover:bg-soft hover:text-accent">@label</a>
+                    }
+                    <a href="@Content.CvFile" download class="rounded-md px-3 py-2 font-semibold text-accent hover:bg-soft">@Content.Nav.Cv</a>
+                </nav>
+            </details>
+        </div>
+    </div>
+</header>
+
+@code {
+    [Parameter, EditorRequired] public SiteContent Content { get; set; } = default!;
+
+    private IEnumerable<(string Href, string Label)> Links =>
+    [
+        ("#sobre-mi", Content.Nav.About),
+        ("#proyectos", Content.Nav.Work),
+        ("#habilidades", Content.Nav.Skills),
+        ("#formacion", Content.Nav.Education),
+        ("#contacto", Content.Nav.Contact),
+    ];
+}

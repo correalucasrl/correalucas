@@ -1,0 +1,144 @@
+@* Diagramas de los casos. Nombres simplificados: no muestran código ni datos del cliente. *@
+
+<div class="mx-auto max-w-3xl overflow-x-auto pb-2">
+@switch (Kind)
+{
+    case Diagram.SummaryTables:
+        <svg viewBox="0 0 720 230" class="h-auto w-full min-w-[620px]" role="img" aria-label="@T("Tabla de horarios DBF de 18 millones de filas agregada en dos tablas resumen que alimentan los tableros", "18-million-row DBF schedule table aggregated into two summary tables that feed the dashboards")">
+            <defs>
+                <marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" class="dg-arrow" /></marker>
+                <marker id="a1a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" class="dg-arrow-accent" /></marker>
+            </defs>
+
+            <rect x="10" y="60" width="190" height="110" rx="12" class="dg-box" />
+            <text x="105" y="95" text-anchor="middle" class="dg-title">@T("Horarios (DBF)", "Schedules (DBF)")</text>
+            <text x="105" y="122" text-anchor="middle" class="dg-strong">@T("18,2 M filas", "18.2M rows")</text>
+            <text x="105" y="145" text-anchor="middle" class="dg-text">@T("campos guardados como texto", "fields stored as text")</text>
+
+            <path d="M200 100 C 240 100, 240 60, 278 60" class="dg-line" marker-end="url(#a1)" />
+            <path d="M200 130 C 240 130, 240 170, 278 170" class="dg-line" marker-end="url(#a1)" />
+            <text x="240" y="118" text-anchor="middle" class="dg-text">@T("1 vez", "once")</text>
+
+            <rect x="280" y="20" width="190" height="80" rx="12" class="dg-box-accent" />
+            <text x="375" y="48" text-anchor="middle" class="dg-title">@T("Resumen de km", "Km summary")</text>
+            <text x="375" y="68" text-anchor="middle" class="dg-text">@T("línea · coche · día", "line · vehicle · day")</text>
+            <text x="375" y="88" text-anchor="middle" class="dg-strong">@T("5,9 M filas", "5.9M rows")</text>
+
+            <rect x="280" y="130" width="190" height="80" rx="12" class="dg-box-accent" />
+            <text x="375" y="158" text-anchor="middle" class="dg-title">@T("Resumen de legajos", "Staff summary")</text>
+            <text x="375" y="178" text-anchor="middle" class="dg-text">@T("línea · coche · día", "line · vehicle · day")</text>
+            <text x="375" y="198" text-anchor="middle" class="dg-strong">@T("11,5 M filas", "11.5M rows")</text>
+
+            <path d="M470 60 C 505 60, 505 100, 538 100" class="dg-line-accent" marker-end="url(#a1a)" />
+            <path d="M470 170 C 505 170, 505 130, 538 130" class="dg-line-accent" marker-end="url(#a1a)" />
+
+            <rect x="540" y="60" width="170" height="110" rx="12" class="dg-box" />
+            <text x="625" y="95" text-anchor="middle" class="dg-title">@T("Tableros", "Dashboards")</text>
+            <text x="625" y="127" text-anchor="middle" class="dg-strong" style="font-size:20px">&lt; 0,1 s</text>
+            <text x="625" y="150" text-anchor="middle" class="dg-text">@T("antes: ~12 s", "before: ~12 s")</text>
+        </svg>
+        break;
+
+    case Diagram.StockFlow:
+        <svg viewBox="0 0 720 285" class="h-auto w-full min-w-[620px]" role="img" aria-label="@T("Circuito de envío entre depósitos con estados pendiente, recibido correctamente y recibido con diferencia", "Warehouse transfer flow with pending, received correctly and received with difference states")">
+            <defs>
+                <marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" class="dg-arrow" /></marker>
+            </defs>
+
+            <rect x="10" y="70" width="150" height="90" rx="12" class="dg-box" />
+            <text x="85" y="100" text-anchor="middle" class="dg-title">@T("Depósito origen", "Source warehouse")</text>
+            <text x="85" y="122" text-anchor="middle" class="dg-text">@T("envío por transferencia", "transfer out")</text>
+            <text x="85" y="144" text-anchor="middle" class="dg-strong">@T("− resta stock", "− subtracts stock")</text>
+
+            <path d="M160 115 H 198" class="dg-line" marker-end="url(#a2)" />
+            <rect x="200" y="95" width="130" height="40" rx="20" class="dg-box-accent" />
+            <text x="265" y="120" text-anchor="middle" class="dg-strong">@T("PENDIENTE", "PENDING")</text>
+
+            <path d="M330 115 H 368" class="dg-line" marker-end="url(#a2)" />
+            <rect x="370" y="70" width="140" height="90" rx="12" class="dg-box" />
+            <text x="440" y="100" text-anchor="middle" class="dg-title">@T("Recepción", "Receipt")</text>
+            <text x="440" y="122" text-anchor="middle" class="dg-text">@T("en el depósito destino", "at destination")</text>
+            <text x="440" y="142" text-anchor="middle" class="dg-text">@T("se controla lo recibido", "items are checked")</text>
+
+            <path d="M510 100 C 530 100, 530 55, 548 55" class="dg-line" marker-end="url(#a2)" />
+            <path d="M510 130 C 530 130, 530 175, 548 175" class="dg-line" marker-end="url(#a2)" />
+
+            <rect x="545" y="20" width="170" height="70" rx="12" class="dg-box-accent" />
+            <text x="630" y="48" text-anchor="middle" class="dg-title" style="font-size:13px">@T("Recibido correctamente", "Received correctly")</text>
+            <text x="630" y="70" text-anchor="middle" class="dg-strong" style="font-size:12px">@T("+ suma en destino", "+ adds at destination")</text>
+
+            <rect x="545" y="140" width="170" height="70" rx="12" class="dg-box-accent" />
+            <text x="630" y="168" text-anchor="middle" class="dg-title" style="font-size:13px">@T("Recibido con diferencia", "Received with difference")</text>
+            <text x="630" y="190" text-anchor="middle" class="dg-text">@T("la diferencia queda trazada", "the difference is tracked")</text>
+
+            <line x1="10" y1="232" x2="710" y2="232" class="dg-line" stroke-dasharray="3 5" />
+            <text x="10" y="254" class="dg-text"><tspan class="dg-title" style="font-size:12px">@T("Tipos de movimiento:", "Movement types:")</tspan> @T("compra · stock inicial · consumo por centro de costo · consumo en unidad", "purchase · opening stock · cost-center consumption · vehicle consumption")</text>
+            <text x="10" y="274" class="dg-text">@T("ajuste positivo y negativo · movimiento interno · envío y recepción por transferencia", "positive and negative adjustment · internal move · transfer out and in")</text>
+        </svg>
+        break;
+
+    case Diagram.PersonnelModel:
+        <svg viewBox="0 0 720 280" class="h-auto w-full min-w-[620px]" role="img" aria-label="@T("Legajo del empleado conectado con sus tablas maestras", "Employee record linked to its master tables")">
+            @foreach (var (x, y, label) in PersonnelBoxes)
+            {
+                <line x1="360" y1="140" x2="@(x + 80)" y2="@(y + 25)" class="dg-line" />
+            }
+            @foreach (var (x, y, label) in PersonnelBoxes)
+            {
+                <g><rect x="@x" y="@y" width="160" height="50" rx="10" class="dg-box" />
+                <text x="@(x + 80)" y="@(y + 30)" text-anchor="middle" class="dg-text" style="fill:var(--color-ink)">@label</text></g>
+            }
+            <rect x="275" y="100" width="170" height="80" rx="14" class="dg-box-accent" />
+            <text x="360" y="133" text-anchor="middle" class="dg-title" style="font-size:16px">@T("Legajo", "Employee record")</text>
+            <text x="360" y="156" text-anchor="middle" class="dg-text">@T("laborales · familiares · ARCA", "job · family · tax (ARCA)")</text>
+        </svg>
+        break;
+
+    case Diagram.ClaimsMap:
+        <svg viewBox="0 0 720 200" class="h-auto w-full min-w-[620px]" role="img" aria-label="@T("De la dirección cargada a la ubicación en el mapa y los tableros", "From the typed address to the map location and dashboards")">
+            <defs>
+                <marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" class="dg-arrow" /></marker>
+            </defs>
+            @foreach (var (i, title, sub, accent) in ClaimsSteps)
+            {
+                var x = 10 + i * 145;
+                <g><rect x="@x" y="45" width="125" height="100" rx="12" class="@(accent ? "dg-box-accent" : "dg-box")" />
+                <text x="@(x + 62)" y="85" text-anchor="middle" class="dg-title" style="font-size:13px">@title</text>
+                <text x="@(x + 62)" y="108" text-anchor="middle" class="dg-text" style="font-size:11px">@sub</text>
+                @if (i < 4)
+                {
+                    <path d="M@(x + 125) 95 H @(x + 143)" class="dg-line" marker-end="url(#a4)" />
+                }</g>
+            }
+        </svg>
+        break;
+}
+</div>
+
+@code {
+    [Parameter, EditorRequired] public Diagram Kind { get; set; }
+    [Parameter, EditorRequired] public Lang Lang { get; set; }
+
+    private string T(string es, string en) => Lang == Lang.En ? en : es;
+
+    private IEnumerable<(int X, int Y, string Label)> PersonnelBoxes =>
+    [
+        (40, 15, T("Bancos y cuentas", "Banks and accounts")),
+        (280, 15, T("Sindicatos y convenios", "Unions and agreements")),
+        (520, 15, T("Obras sociales", "Health insurers")),
+        (10, 115, T("Categorías salariales", "Salary categories")),
+        (550, 115, T("Centros de costo", "Cost centers")),
+        (40, 215, T("Conceptos AFIP", "Tax concepts")),
+        (280, 215, T("Feriados", "Holidays")),
+        (520, 215, T("Modalidad de contratación", "Contract types")),
+    ];
+
+    private IEnumerable<(int I, string Title, string Sub, bool Accent)> ClaimsSteps =>
+    [
+        (0, T("Dirección", "Address"), T("la carga el usuario", "typed by the user"), false),
+        (1, "Google Maps", "Places Autocomplete", true),
+        (2, T("Ubicación", "Location"), T("latitud y longitud", "latitude, longitude"), false),
+        (3, T("Siniestro", "Incident"), T("daños · fotos", "damage · photos"), false),
+        (4, T("Tableros", "Dashboards"), T("mapa de calor", "heat map"), true),
+    ];
+}

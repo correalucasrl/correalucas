@@ -1,0 +1,42 @@
+<section id="sobre-mi" class="border-t border-line bg-soft py-20">
+    <div class="container-page grid gap-12 lg:grid-cols-[1.4fr_1fr]">
+        <div>
+            <h2 class="section-title">@Content.About.Title</h2>
+            <div class="mt-6 space-y-4 leading-relaxed text-muted text-pretty">
+                @foreach (var p in Content.About.Paragraphs)
+                {
+                    <p>@p</p>
+                }
+            </div>
+        </div>
+
+        <div class="space-y-6">
+            <dl class="grid gap-3">
+                @foreach (var h in Content.About.Highlights)
+                {
+                    <div class="card flex flex-col px-5 py-4">
+                        <dt class="order-2 mt-1 text-sm text-muted">@h.Label</dt>
+                        <dd class="order-1 whitespace-nowrap text-2xl font-extrabold tracking-tight text-accent">@h.Value</dd>
+                    </div>
+                }
+            </dl>
+
+            <div class="card p-5">
+                <p class="eyebrow">@Content.Experience.Title</p>
+                <p class="mt-2 font-bold">@Content.Experience.Company</p>
+                <p class="text-sm text-muted">@Content.Experience.Client</p>
+                <p class="mt-1 text-sm text-muted">@Content.Experience.Mode · @Content.Experience.Period</p>
+                <ul class="mt-3 space-y-1 border-t border-line pt-3 text-sm">
+                    @foreach (var s in Content.Experience.Stages)
+                    {
+                        <li>@s</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+@code {
+    [Parameter, EditorRequired] public SiteContent Content { get; set; } = default!;
+}

@@ -1,0 +1,45 @@
+﻿@page "/"
+@page "/en"
+@inject NavigationManager Nav
+
+@{
+    var c = Content;
+    var other = c.Lang == Lang.En ? "/" : "/en";
+}
+
+<PageTitle>@c.PageTitle</PageTitle>
+<HeadContent>
+    <meta name="description" content="@c.MetaDescription" />
+    <link rel="canonical" href="@(Profile.Site + (c.Lang == Lang.En ? "/en" : "/"))" />
+    <link rel="alternate" hreflang="es" href="@(Profile.Site + "/")" />
+    <link rel="alternate" hreflang="en" href="@(Profile.Site + "/en")" />
+    <link rel="alternate" hreflang="x-default" href="@(Profile.Site + "/")" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="@c.PageTitle" />
+    <meta property="og:description" content="@c.MetaDescription" />
+    <meta property="og:url" content="@(Profile.Site + (c.Lang == Lang.En ? "/en" : "/"))" />
+    <meta property="og:locale" content="@(c.Lang == Lang.En ? "en_US" : "es_AR")" />
+</HeadContent>
+
+<SiteHeader Content="c" />
+
+<main id="top">
+    <Hero Content="c" />
+    <About Content="c" />
+    <Work Content="c" />
+    <Skills Content="c" />
+    <Education Content="c" />
+    <Contact Content="c" />
+</main>
+
+<footer class="border-t border-line py-8">
+    <div class="container-page flex flex-col gap-2 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
+        <p>© @DateTime.UtcNow.Year @Profile.Name</p>
+        <p>@c.Footer</p>
+    </div>
+</footer>
+
+@code {
+    private SiteContent Content =>
+        Texts.For(Nav.ToBaseRelativePath(Nav.Uri).StartsWith("en", StringComparison.OrdinalIgnoreCase) ? Lang.En : Lang.Es);
+}

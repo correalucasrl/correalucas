@@ -1,0 +1,35 @@
+<section class="relative overflow-hidden">
+    <div aria-hidden="true" class="pointer-events-none absolute inset-x-0 top-0 h-full bg-[radial-gradient(60rem_30rem_at_80%_-10%,var(--color-accent-soft),transparent)]"></div>
+    <div class="container-page relative py-20 sm:py-28">
+        <p class="eyebrow">@Content.Hero.Greeting</p>
+        <h1 class="mt-4 max-w-3xl text-4xl font-extrabold tracking-tight text-balance sm:text-6xl">
+            @RoleMain
+            <span class="mt-2 block text-2xl font-bold text-accent sm:text-4xl">@RoleRest</span>
+        </h1>
+        <p class="mt-6 max-w-2xl text-lg leading-relaxed text-muted text-pretty">@Content.Hero.Pitch</p>
+
+        <div class="mt-8 flex flex-wrap items-center gap-3">
+            <a href="#proyectos" class="btn-primary">@Content.Hero.CtaWork</a>
+            <a href="@Content.CvFile" download class="btn-ghost">@Content.Hero.CtaCv</a>
+        </div>
+
+        <ul class="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
+            <li class="flex items-center gap-2">
+                <svg viewBox="0 0 24 24" class="size-4 text-accent" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z" /><circle cx="12" cy="9.5" r="2.5" /></svg>
+                @Content.Hero.Location
+            </li>
+            <li class="flex items-center gap-2">
+                <span class="size-2 rounded-full bg-emerald-500" aria-hidden="true"></span>
+                @Content.Hero.Available
+            </li>
+        </ul>
+    </div>
+</section>
+
+@code {
+    [Parameter, EditorRequired] public SiteContent Content { get; set; } = default!;
+
+    // "Desarrollador .NET · SQL Server · Modelado de datos" → título + subtítulo.
+    private string RoleMain => Content.Hero.Role.Split(" · ", 2)[0];
+    private string RoleRest => Content.Hero.Role.Split(" · ", 2) is [_, var rest] ? rest : "";
+}

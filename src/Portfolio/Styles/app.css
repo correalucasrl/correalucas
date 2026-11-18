@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@source "../Components";
+@source "../Content";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", Consolas, monospace;
+
+  --color-ink: #16202b;
+  --color-muted: #586473;
+  --color-line: #dbe2e8;
+  --color-paper: #ffffff;
+  --color-soft: #f3f7f8;
+  --color-accent: #0f5c6e;
+  --color-accent-strong: #0b4756;
+  --color-accent-soft: #e3eff2;
+}
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-ink: #e6edf2;
+      --color-muted: #9aa8b5;
+      --color-line: #263442;
+      --color-paper: #0d151d;
+      --color-soft: #131e28;
+      --color-accent: #4fb3c8;
+      --color-accent-strong: #7cc9d9;
+      --color-accent-soft: #14303a;
+    }
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-paper);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-5xl px-4 sm:px-6;
+  }
+
+  .section-title {
+    @apply text-2xl font-bold tracking-tight sm:text-3xl;
+  }
+
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-wider text-accent;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border border-line bg-soft px-2.5 py-0.5 text-xs font-medium text-muted;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition bg-accent text-paper hover:bg-accent-strong;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition border border-line text-ink hover:border-accent hover:text-accent;
+  }
+
+  .card {
+    @apply rounded-2xl border border-line bg-paper;
+  }
+
+  /* Diagram helpers: SVG elements follow the theme colors. */
+  .dg-box { fill: var(--color-soft); stroke: var(--color-line); stroke-width: 1.5; }
+  .dg-box-accent { fill: var(--color-accent-soft); stroke: var(--color-accent); stroke-width: 1.5; }
+  .dg-title { fill: var(--color-ink); font-weight: 600; font-size: 14px; }
+  .dg-text { fill: var(--color-muted); font-size: 12px; }
+  .dg-strong { fill: var(--color-accent); font-weight: 700; font-size: 13px; }
+  .dg-line { stroke: var(--color-muted); stroke-width: 1.5; fill: none; }
+  .dg-line-accent { stroke: var(--color-accent); stroke-width: 2; fill: none; }
+  .dg-arrow { fill: var(--color-muted); }
+  .dg-arrow-accent { fill: var(--color-accent); }
+}

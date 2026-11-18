@@ -1,0 +1,37 @@
+<section id="formacion" class="border-t border-line py-20">
+    <div class="container-page">
+        <h2 class="section-title">@Content.Education.Title</h2>
+        <ol class="mt-10 space-y-4">
+            @foreach (var e in Content.Education.Items)
+            {
+                <li class="card flex flex-col gap-1 p-5 sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                        <p class="font-semibold">
+                            @if (e.Url is not null)
+                            {
+                                <a href="@e.Url" target="_blank" rel="noopener" class="hover:text-accent">@e.Title</a>
+                            }
+                            else
+                            {
+                                @e.Title
+                            }
+                        </p>
+                        <p class="text-sm text-muted">@e.Place</p>
+                    </div>
+                    @if (e.InProgress)
+                    {
+                        <span class="chip !border-accent/40 !bg-accent-soft !text-accent">@Content.Education.InProgressLabel</span>
+                    }
+                    else
+                    {
+                        <span class="text-sm text-muted">@e.When</span>
+                    }
+                </li>
+            }
+        </ol>
+    </div>
+</section>
+
+@code {
+    [Parameter, EditorRequired] public SiteContent Content { get; set; } = default!;
+}
