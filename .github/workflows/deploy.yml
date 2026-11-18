@@ -50,6 +50,19 @@ jobs:
       - name: Publicar en modo Release
         run: dotnet publish src/Portfolio -c Release -o publish
 
+      # Si el sitio no levanta acá, se frena antes de tocar producción.
+      - name: Probar el sitio antes de subirlo
+        run: |
+          cd publish
+          ASPNETCORE_URLS=http://localhost:5299 ASPNETCORE_ENVIRONMENT=Production dotnet Portfolio.dll > ../smoke.log 2>&1 &
+          for i in $(seq 1 30); do
+            code=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:5299/ || true)
+            [ "$code" != "000" ] && break; sleep 1
+          done
+          en=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:5299/en || true)
+          echo "Portada: $code · /en: $en"
+          if [ "$code" != "200" ] || [ "$en" != "200" ]; then cat ../smoke.log; exit 1; fi
+
       - name: Iniciar sesión en Azure (OIDC)
         uses: azure/login@v2
         with:
