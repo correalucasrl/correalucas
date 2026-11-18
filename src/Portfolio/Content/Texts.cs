@@ -33,8 +33,7 @@ public static class Texts
             Highlights:
             [
                 new("12 s → 0,1 s", "consultas sobre ~18 M de registros"),
-                new("20+ tablas", "maestras en el módulo de Personal"),
-                new("80+", "tickets de Jira resueltos"),
+                new("2 módulos", "diseñados desde cero: Personal y Siniestros"),
             ]),
         Experience: new(
             Title: "Experiencia",
@@ -78,10 +77,10 @@ public static class Texts
                     Id: "personal",
                     Tag: "Diseño de módulo · RR.HH.",
                     Title: "Módulo de Personal desde cero",
-                    Summary: "Legajos y más de 20 tablas maestras como base para liquidar sueldos.",
+                    Summary: "El legajo y sus tablas maestras, la base para liquidar sueldos.",
                     Problem: "La empresa necesitaba centralizar los datos de su personal con todo lo que hace falta para liquidar sueldos: datos laborales, familiares, bancarios, sindicales y de ARCA.",
                     Solution: "Diseñé y desarrollé el módulo completo, base de datos y pantallas: el legajo del empleado y sus maestros, entre ellos bancos y cuentas, sindicatos y convenios, obras sociales, categorías salariales, centros de costo, conceptos AFIP, feriados y modalidades de contratación.",
-                    Result: "Más de 20 tablas maestras relacionadas con el legajo, cada una con su alta, baja y modificación, que dejan los datos listos para la liquidación de sueldos.",
+                    Result: "Las tablas maestras quedan relacionadas con el legajo, cada una con su alta, baja y modificación, y los datos quedan listos para la liquidación de sueldos.",
                     Stack: ["SQL Server", "VB.NET", "ASP.NET", "JavaScript"],
                     Diagram: Diagram.PersonnelModel,
                     DiagramCaption: "El legajo en el centro y los maestros que lo completan."),
@@ -153,8 +152,7 @@ public static class Texts
             Highlights:
             [
                 new("12 s → 0.1 s", "queries over ~18M rows"),
-                new("20+ tables", "master tables in the Personnel module"),
-                new("80+", "Jira tickets resolved"),
+                new("2 modules", "designed from scratch: Personnel and Claims"),
             ]),
         Experience: new(
             Title: "Experience",
@@ -198,10 +196,10 @@ public static class Texts
                     Id: "personal",
                     Tag: "Module design · HR",
                     Title: "Personnel module from scratch",
-                    Summary: "Employee records and 20+ master tables as the basis for payroll.",
+                    Summary: "The employee record and its master tables, the basis for payroll.",
                     Problem: "The company needed to centralize its staff data with everything payroll requires: employment, family, banking, union and tax authority (ARCA) data.",
                     Solution: "I designed and built the whole module, database and screens: the employee record and its master tables, including banks and accounts, unions and agreements, health insurers, salary categories, cost centers, tax concepts, holidays and contract types.",
-                    Result: "More than 20 master tables linked to the employee record, each with create, edit and delete screens, leaving the data ready for payroll.",
+                    Result: "Every master table is linked to the employee record, each with create, edit and delete screens, leaving the data ready for payroll.",
                     Stack: ["SQL Server", "VB.NET", "ASP.NET", "JavaScript"],
                     Diagram: Diagram.PersonnelModel,
                     DiagramCaption: "The employee record at the center and the master tables around it."),
