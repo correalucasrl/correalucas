@@ -1,0 +1,73 @@
+# Publica correalucas.com en Azure App Service en cada push a main.
+# Se conecta a Azure con OIDC (sin contraseñas): la identidad
+# "github-correalucas-deploy" solo tiene permiso sobre la web app correalucas.
+name: Deploy a Azure
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "README.md"
+      - ".claude/**"
+  workflow_dispatch:
+
+permissions:
+  id-token: write   # necesario para el login OIDC con Azure
+  contents: read
+
+concurrency:
+  group: deploy-produccion
+  cancel-in-progress: false
+
+env:
+  AZURE_WEBAPP_NAME: correalucas
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    # Sin "environment": el login OIDC confía en la rama main (subject ref:refs/heads/main).
+
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v4
+
+      - name: Instalar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Compilar CSS (Tailwind)
+        run: |
+          npm ci
+          npm run css
+
+      - name: Instalar .NET 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Publicar en modo Release
+        run: dotnet publish src/Portfolio -c Release -o publish
+
+      - name: Iniciar sesión en Azure (OIDC)
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Subir a Azure App Service
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          package: publish
+
+      - name: Verificar que el sitio responde
+        run: |
+          for i in 1 2 3 4 5 6; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" https://correalucas.com/)
+            [ "$code" = "200" ] && echo "OK: https://correalucas.com responde 200" && exit 0
+            echo "Respuesta $code, reintento en 10 s..."; sleep 10
+          done
+          echo "El sitio no respondió 200 después del deploy"; exit 1

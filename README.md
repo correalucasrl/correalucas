@@ -29,6 +29,12 @@ El sitio queda en http://localhost:5239. Mientras editás estilos o clases, dej�
 
 ## Publicar en Azure
 
+**Automático:** cada `git push` a `main` publica solo en https://correalucas.com con GitHub Actions (`.github/workflows/deploy.yml`). También se puede lanzar a mano desde la pestaña *Actions* del repo (*Deploy a Azure* → *Run workflow*). Los cambios que solo tocan este README no disparan una publicación.
+
+El flujo entra a Azure con OIDC, sin contraseñas guardadas: la identidad `github-correalucas-deploy` solo tiene el rol *Website Contributor* sobre la web app `correalucas` y solo acepta pedidos de la rama `main` de este repo. Usa tres secretos del repo: `AZURE_CLIENT_ID`, `AZURE_TENANT_ID` y `AZURE_SUBSCRIPTION_ID`.
+
+**Manual** (desde tu compu, sin pasar por GitHub): `deploy.ps1`, más abajo.
+
 Primera vez (crea la web app en tu plan Basic existente):
 
 ```bash
