@@ -20,7 +20,7 @@ public static class Texts
             Location: "General Las Heras, Buenos Aires",
             CtaWork: "Ver proyectos",
             CtaCv: "Descargar CV",
-            Available: "Disponible para trabajo presencial o híbrido"),
+            Available: "Disponible para trabajo remoto, híbrido o presencial"),
         About: new(
             Title: "Sobre mí",
             Paragraphs:
@@ -138,7 +138,7 @@ public static class Texts
             Location: "General Las Heras, Buenos Aires, Argentina",
             CtaWork: "See projects",
             CtaCv: "Download CV",
-            Available: "Available for on-site or hybrid work"),
+            Available: "Available for remote, hybrid or on-site work"),
         About: new(
             Title: "About me",
             Paragraphs:
