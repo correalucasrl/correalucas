@@ -27,7 +27,7 @@ public static class Texts
             [
                 "Durante más de un año y medio trabajé en la suite de gestión a medida (tipo ERP) de una empresa de transporte de pasajeros del AMBA, con más de 180 líneas y unas 6.000 unidades. Entré como pasante haciendo QA y testing, y al mes pasé a desarrollador efectivo.",
                 "Diseñé desde cero los módulos de Personal, Stock y Siniestros, y participé en los de Flota, Combustible, Neumáticos, Conductores, Licitaciones, Gestión de Auxilio y Seguridad.",
-                "Mi fuerte es la base de datos: diseñar tablas y relaciones, llevar datos de sistemas viejos a uno nuevo y lograr que las consultas sobre millones de registros respondan rápido. También resuelvo soporte de hardware, Windows y redes.",
+                "Mi fuerte es la base de datos: diseñar tablas y relaciones, llevar datos de sistemas viejos a uno nuevo y lograr que las consultas sobre millones de registros respondan rápido. También doy soporte de hardware, Windows y redes.",
                 "Hoy me estoy formando en desarrollo de aplicaciones con IA (Python, LLMs, RAG y MCP), y en C#, .NET 10 y Angular. Este sitio está hecho con .NET 10.",
             ],
             Highlights:
@@ -90,7 +90,7 @@ public static class Texts
                     Title: "Siniestros con mapas y tableros",
                     Summary: "Registro completo del siniestro, geolocalización con Google Maps y estadísticas.",
                     Problem: "La empresa necesitaba registrar cada siniestro con todos sus datos, ubicarlo en el mapa y analizar dónde y cómo ocurren.",
-                    Solution: "Diseñé desde cero el módulo y sus tablas: el hecho, lesionados, daños, denuncias y evidencia fotográfica. Integré la API de Google Maps con autocompletado de direcciones para guardar la ubicación exacta. Armé tableros con ECharts: índice de gravedad, rankings, evolución mensual y mapa de calor de zonas críticas, con exportación a PDF. Sumé un optimizador que comprime las fotos antes de guardarlas y migré los partes históricos del sistema anterior.",
+                    Solution: "Diseñé desde cero el módulo y sus tablas: el hecho, lesionados, daños, denuncias y evidencia fotográfica. Integré la API de Google Maps con autocompletado de direcciones para guardar la ubicación exacta. Armé tableros con ECharts (índice de gravedad, rankings y evolución mensual) y un mapa de calor de zonas críticas sobre Google Maps, con exportación a PDF. Sumé un optimizador que comprime las fotos antes de guardarlas y migré los partes históricos del sistema anterior.",
                     Result: "Cada siniestro queda en el mapa y la gerencia ve dónde se concentran los hechos y cómo evolucionan.",
                     Stack: ["SQL Server", "Google Maps API", "ECharts", "VB.NET", "JavaScript"],
                     Diagram: Diagram.ClaimsMap,
@@ -143,15 +143,15 @@ public static class Texts
             Title: "About me",
             Paragraphs:
             [
-                "For over a year and a half I worked on a custom ERP-style management suite for a passenger transport company in Greater Buenos Aires, with 180+ bus lines and about 6,000 vehicles. I joined as an intern doing QA and testing, and after a month I became a full-time developer.",
-                "I designed the Personnel, Stock and Claims modules from scratch, and worked on the Fleet, Fuel, Tires, Drivers, Tenders, Roadside Assistance and Security modules.",
+                "For over a year and a half I worked on a custom ERP-style management suite for a passenger transport company in Greater Buenos Aires, with 180+ bus lines and about 6,000 vehicles. I joined as an intern doing QA and testing, and after a month I was hired as a permanent developer.",
+                "I designed the Personnel, Stock and Incidents modules from scratch, and worked on the Fleet, Fuel, Tires, Drivers, Tenders, Roadside Assistance and Security modules.",
                 "My strength is the database: designing tables and relationships, moving data from old systems into new ones, and making queries over millions of rows fast. I also handle hardware, Windows and network support.",
                 "I'm currently learning to build AI applications (Python, LLMs, RAG and MCP), as well as C#, .NET 10 and Angular. This site is built with .NET 10.",
             ],
             Highlights:
             [
                 new("12 s → 0.1 s", "queries over ~18M rows"),
-                new("3 modules", "designed from scratch: Personnel, Stock and Claims"),
+                new("3 modules", "designed from scratch: Personnel, Stock and Incidents"),
             ]),
         Experience: new(
             Title: "Experience",
@@ -205,10 +205,10 @@ public static class Texts
                 new(
                     Id: "siniestros",
                     Tag: "New module · Integrations",
-                    Title: "Claims with maps and dashboards",
+                    Title: "Incidents with maps and dashboards",
                     Summary: "Full incident records, Google Maps geolocation and statistics.",
                     Problem: "The company needed to record every vehicle incident with all its details, place it on a map and analyze where and how incidents happen.",
-                    Solution: "I designed the module and its tables from scratch: the incident, injured people, damages, police reports and photo evidence. I integrated the Google Maps API with address autocomplete to store the exact location. I built ECharts dashboards: severity index, rankings, monthly trend and a heat map of critical areas, with PDF export. I added an optimizer that compresses photos before saving them and migrated historical records from the previous system.",
+                    Solution: "I designed the module and its tables from scratch: the incident, injured people, damages, police reports and photo evidence. I integrated the Google Maps API with address autocomplete to store the exact location. I built ECharts dashboards (severity index, rankings and monthly trend) and a heat map of critical areas on Google Maps, with PDF export. I added an optimizer that compresses photos before saving them and migrated historical records from the previous system.",
                     Result: "Every incident lands on the map, and management can see where incidents cluster and how they evolve.",
                     Stack: ["SQL Server", "Google Maps API", "ECharts", "VB.NET", "JavaScript"],
                     Diagram: Diagram.ClaimsMap,
