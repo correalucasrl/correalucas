@@ -25,7 +25,7 @@ public static class Texts
             Title: "Sobre mí",
             Paragraphs:
             [
-                "Durante más de un año y medio trabajé en la suite de gestión a medida (tipo ERP) de una empresa de transporte de pasajeros del AMBA, con más de 180 líneas y unas 6.000 unidades. Entré como pasante haciendo QA y testing, al mes pasé a desarrollo y a los tres meses quedé como desarrollador efectivo.",
+                "Durante más de un año y medio trabajé en la suite de gestión a medida (tipo ERP) de una empresa de transporte de pasajeros del AMBA, con más de 180 líneas y unas 6.000 unidades. Entré como pasante haciendo QA y testing, y al mes pasé a desarrollador efectivo.",
                 "Diseñé desde cero los módulos de Personal, Stock y Siniestros, y participé en los de Flota, Combustible, Neumáticos, Conductores, Licitaciones, Gestión de Auxilio y Seguridad.",
                 "Mi fuerte es la base de datos: diseñar tablas y relaciones, llevar datos de sistemas viejos a uno nuevo y lograr que las consultas sobre millones de registros respondan rápido. También resuelvo soporte de hardware, Windows y redes.",
                 "Hoy me estoy formando en desarrollo de aplicaciones con IA (Python, LLMs, RAG y MCP), y en C#, .NET 10 y Angular. Este sitio está hecho con .NET 10.",
@@ -41,7 +41,7 @@ public static class Texts
             Client: "Cliente: DOTA, transporte de pasajeros del AMBA",
             Period: "abr. 2025 – nov. 2026",
             Mode: "Remoto",
-            Stages: ["Desarrollador .NET · may. 2025 – nov. 2026 (efectivo desde jul. 2025)", "Pasante de QA / Testing · abr. 2025 – may. 2025"]),
+            Stages: ["Desarrollador .NET · may. 2025 – nov. 2026", "Pasante de QA / Testing · abr. 2025 – may. 2025"]),
         Work: new(
             Title: "Proyectos",
             Intro: "Cuatro trabajos que muestran cómo pienso un sistema de gestión, de la base de datos a la pantalla.",
@@ -143,7 +143,7 @@ public static class Texts
             Title: "About me",
             Paragraphs:
             [
-                "For over a year and a half I worked on a custom ERP-style management suite for a passenger transport company in Greater Buenos Aires, with 180+ bus lines and about 6,000 vehicles. I joined as an intern doing QA and testing, moved to development after a month, and became a full-time developer after three months.",
+                "For over a year and a half I worked on a custom ERP-style management suite for a passenger transport company in Greater Buenos Aires, with 180+ bus lines and about 6,000 vehicles. I joined as an intern doing QA and testing, and after a month I became a full-time developer.",
                 "I designed the Personnel, Stock and Claims modules from scratch, and worked on the Fleet, Fuel, Tires, Drivers, Tenders, Roadside Assistance and Security modules.",
                 "My strength is the database: designing tables and relationships, moving data from old systems into new ones, and making queries over millions of rows fast. I also handle hardware, Windows and network support.",
                 "I'm currently learning to build AI applications (Python, LLMs, RAG and MCP), as well as C#, .NET 10 and Angular. This site is built with .NET 10.",
@@ -159,7 +159,7 @@ public static class Texts
             Client: "Client: DOTA, passenger transport, Greater Buenos Aires",
             Period: "Apr 2025 – Nov 2026",
             Mode: "Remote",
-            Stages: [".NET Developer · May 2025 – Nov 2026 (full-time since Jul 2025)", "QA / Testing Intern · Apr 2025 – May 2025"]),
+            Stages: [".NET Developer · May 2025 – Nov 2026", "QA / Testing Intern · Apr 2025 – May 2025"]),
         Work: new(
             Title: "Projects",
             Intro: "Four pieces of work that show how I think about a business system, from the database to the screen.",
